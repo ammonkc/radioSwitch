@@ -129,6 +129,7 @@
     		                'line-height':settings.height+'px',
     		                'background-image':handle_bg,
     		                'background-repeat':'no-repeat',
+    		                'text-align':'center',
     		                'color':'#333',
     		                'z-index':'3'
     		                });
@@ -137,11 +138,14 @@
     		           'height':settings.height,
     		           'line-height':settings.height+'px',
     		           'float':'left',
+    		           'padding':'0',
+    		           'margin':'0',
     		           'text-align':'center',
     		           'color':'#fff',
     		           'font-size':settings.label_font_size,
     		           'z-index':'2'
-    		           });
+    		           })
+    		       .addClass(settings.label_class);
     		// CSS3 - imagless 
     		if (!settings.use_images) {
     			track.css({
