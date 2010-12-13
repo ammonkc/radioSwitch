@@ -6,7 +6,7 @@
     	<script type="text/javascript" src="jquery.radioSwitch.js"></script>
     	<script type="text/javascript" charset="utf-8">
     		$(document).ready(function() {
-    		    $(".demo-light").radioSwitch();
+    		    $(".demo-light").radioSwitch({width:75});
     		    $(".demo-dark").radioSwitch({speed:200, track_bg_color:'#333'});
     		});
     	</script>
@@ -138,10 +138,31 @@
 				    
 				    <input type="radio" name="radio" value="three" id="radio3" class="radioSlider" style="">
 				    <label for="radio3">Three</label>
-    			    
     		    </div>
     		    
     		</fieldset>
+    		
+    		<fieldset class="">
+    		
+    			<h3>Dark Track Image</h3>
+    			
+    			<div class="demo-light">
+    			        
+    			    <input type="radio" name="radio" value="one" checked="checked" id="radio1" class="radioSlider" style="">
+    			    <label for="radio1">One</label>
+    			    
+    			    <input type="radio" name="radio" value="two" id="radio2" class="radioSlider" style="">
+    			    <label for="radio2">Two</label>
+    			    
+    			    <input type="radio" name="radio" value="three" id="radio3" class="radioSlider" style="">
+    			    <label for="radio3">Three</label>
+    			    
+    			    <input type="radio" name="radio" value="four" id="radio4" class="radioSlider" style="">
+    			    <label for="radio4">Four</label>
+    		    </div>
+    		    
+    		</fieldset>
+    		
     	</form>
     
     </body>

@@ -1,12 +1,12 @@
 /******************************************************* 
-*  jQuery radioSwitch plugin v0.1                      *
+*  jQuery radioSwitch plugin v0.3                      *
 *                                                      *
 *  jquery.radioSwitch.js                               *
 *  Author: Ammon Casey                                 *
 *  Website: http://www.brokenparadigmlabs.com          *
 *  Hosted: http://github.com/ammonkc/radioSwitch       *
 *  Twitter: @ammonkc                                   *
-*  Date: 12.10.2010                                    *
+*  Date: 12.13.2010                                    *
 *                                                      *
 *  Copyright (c) 2010, Ammon Casey                     *
 *  licensed under the MIT license:                     *
@@ -21,15 +21,13 @@
     	var settings = {
     	    track_class: 'radioSwitch-track',
     	    handle_class: 'radioSwitch-handle',
-    	    label_class: 'label',
+    	    label_class: 'radioSwitch-label',
     		mouse_over: 'pointer',
     		mouse_out:  'default',
     		hide_radio: true,
     		sync_checked: true,
     		use_images: false,
     		speed: '250',
-    		on_label: 'On',
-    		off_label: 'Off',
     		// Switch
     		width: 50,
     		height: 25,
@@ -60,7 +58,7 @@
     		var container = jQuery(this);
     		var radios = container.find(':radio');
     		var labels = container.find('label');
-    		var count = radios.length;
+    		var count  = radios.length;
     		var track;
     		var handle;
     		var track_bg;
@@ -75,12 +73,9 @@
     		
     		// sync checkbox state with switch state
     		if (settings.sync_checked) {
-    		    radios.each(function(index){
-    		        if (jQuery(this).attr('checked') == true) { 
-    		            state = index; 
-    		            handle_txt = container.find('label[for="'+jQuery(this).attr('id')+'"]').text();
-    		        }
-    		    });
+    		    var chkd = radios.filter(':checked');
+    		    state = radios.index(chkd);
+    		    handle_txt = container.find('label[for="'+chkd.attr('id')+'"]').text();
     		}
     		
     		// use images 
@@ -98,6 +93,7 @@
     		// Positions
     		var offset = track_width - (settings.width * state) + settings.width;
     		var left   = (settings.width * state) + settings.padding;
+    		var handle_display = (state == -1 ? 'none' : 'block');
     		
     		/**** make the container ****/
     		container.css({
@@ -133,6 +129,7 @@
     		                'top':1,
     		                'bottom':1,
     		                'position':'absolute',
+    		                'display':handle_display,
     		                'line-height':settings.height+'px',
     		                'background-image':handle_bg,
     		                'background-repeat':'no-repeat',
@@ -187,25 +184,24 @@
     		    var myContainer = myLabel.parent();
     		    var myRadio     = myContainer.find('#' + myLabel.attr('for'));
     		    var myHandle    = myContainer.find('.' + settings.handle_class);
-    		    radios.each(function(index){
-    		                    if (jQuery(this).attr('id') == myLabel.attr('for')) { 
-    		                        state = index; 
-    		                    }
-    		                });
+    		        state       = radios.index(myRadio);
     		    // Positions
     		    var position_left = (settings.width * state);
     		    var offset = ((track_width - position_left) - settings.width);
     		        position_left = position_left + settings.padding;
     		        offset = offset + settings.padding;
+    		        display_handle = (state == -1 ? 'none' : 'block');
     		    // Values    
     		    myRadio.attr('checked', true)
-    		               .trigger('change');
-    		    myHandle.animate({left:position_left,right:offset}, settings.speed, function() {
-    		        
-    		        if(typeof switched_callback == 'function'){
-    		            switched_callback.call(this, data);
-    		        }
-    		    }).text(myLabel.text());
+    		           .trigger('change');
+    		    myHandle.animate({left:position_left,right:offset}, settings.speed, function() {    		        
+        		          if(typeof switched_callback == 'function'){
+        		              switched_callback.call(this, data);
+        		          }
+        		      })
+        		       .text(myLabel.text())
+        		       .css({display:display_handle});
+    		    console.log(myRadio.val());
     		});
     
     	});	
