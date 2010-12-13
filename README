@@ -1,12 +1,12 @@
 /******************************************************* 
-*  jQuery iphoneSwitch plugin                          *
+*  jQuery radioSwitch plugin                           *
 *                                                      *
-*  jquery.iphoneSwitch.js                              *
+*  jquery.radioSwitch.js                               *
 *  Author: Ammon Casey                                 *
 *  Website: http://www.brokenparadigmlabs.com          *
-*  http://github.com/ammonkc/iPhoneSwitch              *
+*  http://github.com/ammonkc/radioSwitch               *
 *  Twitter: @ammonkc                                   *
-*  Date: 08.10.2010                                    *
+*  Date: 12.13.2010                                    *
 *                                                      *
 *  Copyright (c) 2010, Ammon Casey                     *
 *  licensed under the MIT license:                     *
@@ -14,30 +14,29 @@
 ********************************************************/
 
 check the demo source for examples of how to use the plugin.
-There are many options that can be passed via the 4th parameter
+There are many options that can be passed via the first parameter. 
+The second parameter is for a callback function
 
-# define default settings
 var settings = {
+    track_class: 'radioSwitch-track',
+    handle_class: 'radioSwitch-handle',
+    label_class: 'radioSwitch-label',
 	mouse_over: 'pointer',
 	mouse_out:  'default',
-	hide_checkbox: true,
-	sync_checkbox: true,
-	use_images: true,
-	speed: '300',
-	on_label: 'On',
-	off_label: 'Off',
-	switch_height: 28,
-	switch_width: 93,
-	switch_radius: 3,
+	hide_radio: true,
+	sync_checked: true,
+	use_images: false,
+	speed: '250',	
+	width: 50,
+	height: 25,
+	radius: 4,
+	padding: 1,
 	track_img: 'images/switch_track.png',
 	track_bg_color: '#5f6777',
-	track_width: 93,
-	track_height: 27,
+	track_dropshadow_color: 'rgba(255, 255, 255, 0.15)',
 	handle_img: 'images/switch_handle.png',
 	handle_bg_color: '#f9f9f9',
 	handle_border_color: '#d0d0d0',
-	handle_height: 25,
-	handle_width: 37,
-	label_color: "#ffffff",
+	label_text_color: "#ffffff",
 	label_font_size: 12
 };
