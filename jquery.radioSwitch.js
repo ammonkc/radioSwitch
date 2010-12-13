@@ -1,5 +1,5 @@
 /******************************************************* 
-*  jQuery radioSwitch plugin v0.3                      *
+*  jQuery radioSwitch plugin v0.3.1                    *
 *                                                      *
 *  jquery.radioSwitch.js                               *
 *  Author: Ammon Casey                                 *
