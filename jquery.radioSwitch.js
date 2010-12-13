@@ -15,8 +15,6 @@
 (function($){
     jQuery.fn.radioSwitch = function(options, switched_callback) {
     	
-    	var state;
-    	
     	// define default settings
     	var settings = {
     	    track_class: 'radioSwitch-track',
@@ -58,7 +56,9 @@
     		var container = jQuery(this);
     		var radios = container.find(':radio');
     		var labels = container.find('label');
+    		var checkd = radios.filter(':checked');
     		var count  = radios.length;
+    		var state = 0;
     		var track;
     		var handle;
     		var track_bg;
@@ -67,16 +67,12 @@
 			// dimensions 
 			var track_width = settings.width * count;
 			var handle_radius = settings.radius -1;
-    		    		
+    		
     		// Hide the checkbox
     		if (settings.hide_radio) {radios.hide();}    		
     		
-    		// sync checkbox state with switch state
-    		if (settings.sync_checked) {
-    		    var chkd = radios.filter(':checked');
-    		    state = radios.index(chkd);
-    		    handle_txt = container.find('label[for="'+chkd.attr('id')+'"]').text();
-    		}
+    		state = radios.index(checkd);
+    		handle_txt = container.find('label[for="'+checkd.attr('id')+'"]').text();
     		
     		// use images 
     		if (settings.use_images) {
@@ -194,14 +190,13 @@
     		    // Values    
     		    myRadio.attr('checked', true)
     		           .trigger('change');
-    		    myHandle.animate({left:position_left,right:offset}, settings.speed, function() {    		        
+    		    myHandle.animate({left:position_left,right:offset}, settings.speed, function() {
+    		              jQuery(this).text(myLabel.text());
         		          if(typeof switched_callback == 'function'){
         		              switched_callback.call(this, data);
         		          }
         		      })
-        		       .text(myLabel.text())
         		       .css({display:display_handle});
-    		    console.log(myRadio.val());
     		});
     
     	});	
