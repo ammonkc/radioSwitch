@@ -6,8 +6,9 @@
     	<script type="text/javascript" src="jquery.radioSwitch.js"></script>
     	<script type="text/javascript" charset="utf-8">
     		$(document).ready(function() {
-    		    $(".demo-light").radioSwitch({width:75});
+    		    $(".demo-light").radioSwitch();
     		    $(".demo-dark").radioSwitch({speed:200, track_bg_color:'#333'});
+    		    $(".demo-big").radioSwitch({track_bg_color:'#333'});
     		});
     	</script>
     	<style type="text/css" media="screen">
@@ -49,54 +50,7 @@
     			color: #CED2D8;
     		}
     		h2 {color: rgb(102, 102, 102);text-align:center;}
-    		
-    		#radioset-container
-    		{
-    		    width: 150px;
-    		    height: 27px;
-    		    margin: 0 auto;
-    		    padding: 2;
-    		}
-    		#radioset-container .track
-    		{
-    		    width: 150px;
-    		    height: 27px;
-    		    position: relative;
-    		    background-color: #5f6777;
-    		    -webkit-border-radius: 4px;
-    		    -webkit-box-shadow: rgba(255, 255, 255, 0.15) 0px 1px 1px, rgba(1, 1, 1, 0.65) 0px 3px 6px inset;
-    		}
-    		#radioset-container input[type="radio"]
-    		{
-    		    display: none;
-    		}
-    		#radioset-container label
-    		{
-    		    float: left;
-    		    width:  50px;
-    		    height: 27px;
-    		    line-height: 27px;
-    		    text-align: center;
-    		}
-    		#radioset-container .handle
-    		{
-    		    position: absolute;
-    		    left: 50px;
-    		    right: 1px;
-    		    display: block;
-    		    width:  48px;
-    		    height: 25px;
-    		    margin: 1px 0;
-    		    line-height: 25px;
-    		    color: #333;
-    		    text-align: center;
-    		    background-color: #f9f9f9;
-    		    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fcfcfc), to(#e6e6e6));
-    		    -webkit-border-radius: 3px;
-    		    -webkit-background-clip: padding-box;
-    		    -webkit-box-shadow: rgba(255,255,255,1) 0px 0px 3px inset, rgba(0, 0, 0, 0.99) 0px 0px 3px;
-    		}
-    		.demo-light, .demo-dark{
+    		.demo-light, .demo-dark, .demo-big{
     		    margin: 0 auto;
     		}
     	</style>
@@ -109,15 +63,15 @@
     		
     			<h3>Light Track Image</h3>
     			
-    			<div class="demo-light">
+    			<div class="demo-light" id="demo1">
     			        
-        			    <input type="radio" name="radio" value="one" checked="checked" id="radio1" class="radioSlider" style="">
+        			    <input type="radio" name="radio1" value="one" checked="checked" id="radio1" class="radioSlider" style="">
         			    <label for="radio1">One</label>
         			    
-        			    <input type="radio" name="radio" value="two" id="radio2" class="radioSlider" style="">
+        			    <input type="radio" name="radio1" value="two" id="radio2" class="radioSlider" style="">
         			    <label for="radio2">Two</label>
         			    
-        			    <input type="radio" name="radio" value="three" id="radio3" class="radioSlider" style="">
+        			    <input type="radio" name="radio1" value="three" id="radio3" class="radioSlider" style="">
         			    <label for="radio3">Three</label>
     			    
     		    </div>
@@ -128,37 +82,37 @@
     		
     			<h3>Dark Track Image</h3>
     			
-    			<div class="demo-dark">
+    			<div class="demo-dark" id="demo2">
     			        
-				    <input type="radio" name="radio" value="one" checked="checked" id="radio1" class="radioSlider" style="">
-				    <label for="radio1">One</label>
+				    <input type="radio" name="radio2" value="one" id="radio4" class="radioSlider" style="">
+				    <label for="radio4">One</label>
 				    
-				    <input type="radio" name="radio" value="two" id="radio2" class="radioSlider" style="">
-				    <label for="radio2">Two</label>
+				    <input type="radio" name="radio2" value="two" checked="checked" id="radio5" class="radioSlider" style="">
+				    <label for="radio5">Two</label>
 				    
-				    <input type="radio" name="radio" value="three" id="radio3" class="radioSlider" style="">
-				    <label for="radio3">Three</label>
+				    <input type="radio" name="radio2" value="three" id="radio6" class="radioSlider" style="">
+				    <label for="radio6">Three</label>
     		    </div>
     		    
     		</fieldset>
     		
     		<fieldset class="">
     		
-    			<h3>Dark Track Image</h3>
+    			<h3>Light 4 Radios</h3>
     			
-    			<div class="demo-light">
+    			<div class="demo-big" id="demo3">
     			        
-    			    <input type="radio" name="radio" value="one" checked="checked" id="radio1" class="radioSlider" style="">
-    			    <label for="radio1">One</label>
+    			    <input type="radio" name="radio3" value="one" checked="checked" id="radio7" class="radioSlider" style="">
+    			    <label for="radio7">One</label>
     			    
-    			    <input type="radio" name="radio" value="two" id="radio2" class="radioSlider" style="">
-    			    <label for="radio2">Two</label>
+    			    <input type="radio" name="radio3" value="two" id="radio8" class="radioSlider" style="">
+    			    <label for="radio8">Two</label>
     			    
-    			    <input type="radio" name="radio" value="three" id="radio3" class="radioSlider" style="">
-    			    <label for="radio3">Three</label>
+    			    <input type="radio" name="radio3" value="three" id="radio9" class="radioSlider" style="">
+    			    <label for="radio9">Three</label>
     			    
-    			    <input type="radio" name="radio" value="four" id="radio4" class="radioSlider" style="">
-    			    <label for="radio4">Four</label>
+    			    <input type="radio" name="radio3" value="four" id="radio10" class="radioSlider" style="">
+    			    <label for="radio10">Four</label>
     		    </div>
     		    
     		</fieldset>
