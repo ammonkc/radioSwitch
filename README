@@ -1,0 +1,43 @@
+/******************************************************* 
+*  jQuery iphoneSwitch plugin                          *
+*                                                      *
+*  jquery.iphoneSwitch.js                              *
+*  Author: Ammon Casey                                 *
+*  Website: http://www.brokenparadigmlabs.com          *
+*  http://github.com/ammonkc/iPhoneSwitch              *
+*  Twitter: @ammonkc                                   *
+*  Date: 08.10.2010                                    *
+*                                                      *
+*  Copyright (c) 2010, Ammon Casey                     *
+*  licensed under the MIT license:                     *
+*  http://www.opensource.org/licenses/mit-license.php  *
+********************************************************/
+
+check the demo source for examples of how to use the plugin.
+There are many options that can be passed via the 4th parameter
+
+# define default settings
+var settings = {
+	mouse_over: 'pointer',
+	mouse_out:  'default',
+	hide_checkbox: true,
+	sync_checkbox: true,
+	use_images: true,
+	speed: '300',
+	on_label: 'On',
+	off_label: 'Off',
+	switch_height: 28,
+	switch_width: 93,
+	switch_radius: 3,
+	track_img: 'images/switch_track.png',
+	track_bg_color: '#5f6777',
+	track_width: 93,
+	track_height: 27,
+	handle_img: 'images/switch_handle.png',
+	handle_bg_color: '#f9f9f9',
+	handle_border_color: '#d0d0d0',
+	handle_height: 25,
+	handle_width: 37,
+	label_color: "#ffffff",
+	label_font_size: 12
+};
