@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head>
-    	<title>iPhoneSwitch Demo</title>
+    	<title>radioSwitch Demo</title>
     	<script type="text/javascript" src="jquery.min.js"></script>
     	<script type="text/javascript" src="jquery.radioSwitch.js"></script>
     	<script type="text/javascript" charset="utf-8">
@@ -31,23 +31,30 @@
     			-webkit-background-clip: padding-box;
     			text-align: center;
     			color: rbg(102,102,102);
-    			background-color: #fff;
+    			background: #fff;
     		}
-    		fieldset 
+    		fieldset.demo1
     		{
     			border: 1px solid #ccc;
     			margin-bottom: 10px;
     			padding: 20px 0;
+    			background: #fff url(images/bg.png) repeat;
     		}
-    		fieldset.dark 
+    		fieldset.demo2
     		{
     			background-color: #444;	
-    			color: #CED2D8;	
+    			color: #CED2D8;
+    			margin-bottom: 10px;
+    			padding: 20px 0;
+    			background: #fff url(images/bg2.png) repeat;
     		}
-    		fieldset.imageless-dark 
+    		fieldset.demo3
     		{
     			background-color: #444;
     			color: #CED2D8;
+    			margin-bottom: 10px;
+    			padding: 20px 0;
+    			background: #fff url(images/bg3.png) repeat;
     		}
     		h2 {color: rgb(102, 102, 102);text-align:center;}
     		.demo-light, .demo-dark, .demo-big{
@@ -59,9 +66,9 @@
     	
     	<form action="demo_submit" method="get" accept-charset="utf-8">
     		<h2>RadioSwitch</h2>
-    		<fieldset class="">
+    		<fieldset class="demo1">
     		
-    			<h3>Light Track Image</h3>
+    			<h3>Default Color</h3>
     			
     			<div class="demo-light" id="demo1">
     			        
@@ -78,9 +85,9 @@
     		    
     		</fieldset>
     		
-    		<fieldset class="dark">
+    		<fieldset class="demo2">
     		
-    			<h3>Dark Track Image</h3>
+    			<h3>Dark Track</h3>
     			
     			<div class="demo-dark" id="demo2">
     			        
@@ -96,9 +103,9 @@
     		    
     		</fieldset>
     		
-    		<fieldset class="">
+    		<fieldset class="demo3">
     		
-    			<h3>Light 4 Radios</h3>
+    			<h3>4 Radios</h3>
     			
     			<div class="demo-big" id="demo3">
     			        
