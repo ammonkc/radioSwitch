@@ -22,6 +22,8 @@ The radio button set needs to be wrapped in a container. Call the plugin on that
 Each radio button needs to have a label with the for attribute [for=""] pointing to the corresponding
 radio button's id.
 
+HTML:
+
     <div class="radio-container">
         
         /** radio buttons and labels go in here. **/
@@ -29,14 +31,16 @@ radio button's id.
         <label for="radio1">one</label>
         
         <input type="radio" name="radioset" id="radio2" value="two"/>
-        <label for="radio2">one</label>
+        <label for="radio2">Two</label>
         
         <input type="radio" name="radioset" id="radio3" value="three"/>
-        <label for="radio3">one</label>
+        <label for="radio3">Three</label>
         
     </div>
 
+Javascript:
 
+$(".radio-container").radioSwitch({width:60});
 
 
 
