@@ -4,7 +4,7 @@
 *  jquery.radioSwitch.js                               *
 *  Author: Ammon Casey                                 *
 *  Website: http://www.brokenparadigmlabs.com          *
-*  Hosted: http://github.com/ammonkc/radioSwitch       *
+*  Hosted: https://github.com/ammonkc/radioSwitch      *
 *  Twitter: @ammonkc                                   *
 *  Date: 12.13.2010                                    *
 *                                                      *
