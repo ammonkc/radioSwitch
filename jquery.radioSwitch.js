@@ -98,7 +98,8 @@
 	                     'position':'relative',
 	                     'overflow':'hidden',
 	                     'font':"normal normal normal 12px/18px 'Lucida Grande', Verdana, sans-serif",
-	                     'padding':'0 0 1px 0'
+	                     'padding':'1px',
+	                     '-webkit-border-radius':settings.radius
 	                     });
     		/**** make the track ****/
     		track = jQuery('<div />')
