@@ -132,7 +132,7 @@
     		                'background-repeat':'no-repeat',
     		                'text-align':'center',
     		                'color':'#333',
-    		                'cursor':'pointer',
+    		                'cursor':'default',
     		                'z-index':'3'
     		                });
     		labels.css({
