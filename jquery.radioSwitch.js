@@ -199,7 +199,7 @@
     		    myHandle.animate({left:position_left,right:offset}, settings.speed, function() {
     		              jQuery(this).text(myLabel.text());
         		          if(typeof switched_callback == 'function'){
-        		              switched_callback.call(this, data);
+        		              switched_callback.call(this);
         		          }
         		      })
         		       .css({display:display_handle});
