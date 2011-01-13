@@ -1,12 +1,12 @@
 /******************************************************* 
-*  jQuery radioSwitch plugin v0.3.1                    *
+*  jQuery radioSwitch plugin v0.3.2                    *
 *                                                      *
 *  jquery.radioSwitch.js                               *
 *  Author: Ammon Casey                                 *
 *  Website: http://www.brokenparadigmlabs.com          *
 *  Hosted: https://github.com/ammonkc/radioSwitch      *
 *  Twitter: @ammonkc                                   *
-*  Date: 12.13.2010                                    *
+*  Date: 01.13.2011                                    *
 *                                                      *
 *  Copyright (c) 2010, Ammon Casey                     *
 *  licensed under the MIT license:                     *
@@ -17,31 +17,31 @@
     	
     	// define default settings
     	var settings = {
-    	    track_class: 'radioSwitch-track',
-    	    handle_class: 'radioSwitch-handle',
-    	    label_class: 'radioSwitch-label',
-    		mouse_over: 'pointer',
-    		mouse_out:  'default',
-    		hide_radio: true,
-    		sync_checked: true,
-    		use_images: false,
-    		speed: '250',
+    	    track_class               : 'radioSwitch-track',
+    	    handle_class              : 'radioSwitch-handle',
+    	    label_class               : 'radioSwitch-label',
+    		mouse_over                : 'pointer',
+    		mouse_out                 : 'default',
+    		hide_radio                : true,
+    		sync_checked              : true,
+    		use_images                : false,
+    		speed                     : '250',
     		// Switch
-    		width: 50,
-    		height: 25,
-    		radius: 4,
-    		padding: 1,
+    		width                     : 50,
+    		height                    : 25,
+    		radius                    : 4,
+    		padding                   : 1,
     		// Track
-    		track_img: 'images/switch_track.png',
-    		track_bg_color: '#5f6777',
-    		track_dropshadow_color: 'rgba(255, 255, 255, 0.15)',
+    		track_img                 : 'images/switch_track.png',
+    		track_bg_color            : '#5f6777',
+    		track_dropshadow_color    : 'rgba(255, 255, 255, 0.15)',
     		// Handle
-    		handle_img: 'images/switch_handle.png',
-    		handle_bg_color: '#f9f9f9',
-    		handle_border_color: '#d0d0d0',
+    		handle_img                : 'images/switch_handle.png',
+    		handle_bg_color           : '#f9f9f9',
+    		handle_border_color       : '#d0d0d0',
     		// Labels
-    		label_text_color: "#ffffff",
-    		label_font_size: 12
+    		label_text_color          : "#ffffff",
+    		label_font_size           : 12
     	};
     
     	if(options) {
@@ -53,23 +53,23 @@
     	    // Check that this contains radio buttons
     		if (!jQuery(this).find(':radio').length) { return; }
     		
-    		var container = jQuery(this);
-    		var radios = container.find(':radio');
-    		var labels = container.find('label');
-    		var checkd = radios.filter(':checked');
-    		var count  = radios.length;
-    		var state = 0;
+    		var container     = jQuery(this);
+    		var radios        = container.find(':radio');
+    		var labels        = container.find('label');
+    		var checkd        = radios.filter(':checked');
+    		var count         = radios.length;
+    		var state         = 0;
     		var track;
     		var handle;
     		var track_bg;
     		var handle_bg;
-    		var handle_txt = '';
+    		var handle_txt    = '';
 			// dimensions 
-			var track_width = settings.width * count;
+			var track_width   = settings.width * count;
 			var handle_radius = settings.radius -1;
     		
     		// Hide the checkbox
-    		if (settings.hide_radio) {radios.hide();}    		
+    		if (settings.hide_radio) {radios.hide();}
     		
     		state = radios.index(checkd);
     		handle_txt = container.find('label[for="'+checkd.attr('id')+'"]').text();
@@ -84,7 +84,7 @@
     			handle_bg = settings.handle_bg_color;
     			// tweak padding for css only version
     			track_padding = settings.track_padding + 1;
-    		}
+    		}//- END if else
     		
     		// Positions
     		var offset = track_width - (settings.width * state) + settings.width;
@@ -133,6 +133,9 @@
     		                'text-align':'center',
     		                'color':'#333',
     		                'cursor':'default',
+    		                '-webkit-user-select':'none',
+    		                '-moz-user-select':'none',
+    		                'user-select':'none',
     		                'z-index':'3'
     		                });
     		labels.css({
@@ -144,7 +147,11 @@
     		           'margin':'0',
     		           'text-align':'center',
     		           'color':'#fff',
+    		           'cursor':'pointer',
     		           'font-size':settings.label_font_size,
+    		           '-webkit-user-select':'none',
+    		           '-moz-user-select':'none',
+    		           'user-select':'none',
     		           'z-index':'2'
     		           })
     		       .addClass(settings.label_class);
@@ -174,7 +181,7 @@
     					'-webkit-background-clip':'padding-box',
     					'background-clip':'padding-box'
     					});
-    		}
+    		}//- END if
     		
     		container.wrapInner(track)
     		         .find('.' + settings.track_class)
@@ -182,29 +189,38 @@
     		
     		// click handling
     		container.find('label').click(function() {
-    		    var myLabel     = jQuery(this);
-    		    var myContainer = myLabel.parent();
-    		    var myRadio     = myContainer.find('#' + myLabel.attr('for'));
-    		    var myHandle    = myContainer.find('.' + settings.handle_class);
-    		        state       = radios.index(myRadio);
+    		    var myLabel          = jQuery(this);
+    		    var myContainer      = myLabel.parent();
+    		    var myRadio          = myContainer.find('#' + myLabel.attr('for'));
+    		    var myHandle         = myContainer.find('.' + settings.handle_class);
+    		        state            = radios.index(myRadio);
     		    // Positions
-    		    var position_left = (settings.width * state);
-    		    var offset = ((track_width - position_left) - settings.width);
-    		        position_left = position_left + settings.padding;
-    		        offset = offset + settings.padding;
-    		        display_handle = (state == -1 ? 'none' : 'block');
+    		    var position_left    = (settings.width * state);
+    		    var offset           = ((track_width - position_left) - settings.width);
+    		        position_left    = position_left + settings.padding;
+    		        offset           = offset + settings.padding;
+    		        display_handle   = (state == -1 ? 'none' : 'block');
     		    // Values    
     		    myRadio.attr('checked', true)
     		           .trigger('change');
-    		    myHandle.animate({left:position_left,right:offset}, settings.speed, function() {
-    		              jQuery(this).text(myLabel.text());
-        		          if(typeof switched_callback == 'function'){
-        		              switched_callback.call(this);
-        		          }
-        		      })
-        		       .css({display:display_handle});
-    		});
+    		    myHandle.css({display:display_handle});
+    		    // Animate handle
+        		slide_handle(myHandle, position_left, offset, settings.speed, switched_callback);
+    		});//- END click event listener
     
-    	});	
-    }
+    	});//- END .each()
+    }//-END $.fn.radioSwitch()
+    
+    /*** Private functions ***/
+    function slide_handle(handle, left_pos, right_pos, speed, switch_callback)
+    {
+        jQuery(handle).animate({left: left_pos, right: right_pos}, speed, function() {
+        	if (typeof switch_callback == 'function')
+        	{
+        	    switch_callback.call(this);
+        	}//- END if
+        });//- END animate
+        return false;
+    }//- END slide_handle()
+    
 })(jQuery);
