@@ -51,10 +51,10 @@
     	// create the switch
     	return this.each(function() {
     	    // Check that this contains radio buttons
-    		if (!jQuery(this).find(':radio').length) { return; }
+    		if (!jQuery(this).find(':radio').length || !jQuery(this).find('input[type=radio]').length) { return; }
     		
     		var container     = jQuery(this);
-    		var radios        = container.find(':radio');
+    		var radios        = container.find('input[type=radio]');
     		var labels        = container.find('label');
     		var checkd        = radios.filter(':checked');
     		var count         = radios.length;
